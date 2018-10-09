@@ -24,3 +24,13 @@ function print_to_file()
 		echo "[`(eval "${sec}")`.`(eval "${nas}")`]: ${LOCAL_DEBUG_INFO}" > "${LOCAL_LOG_FILE}"
 	fi
 }
+
+## Discription : Add debug info at the beginning of development,remove it at the end of development
+## Parameters  : $@ all input parameters
+function debug()
+{
+	# judge environment variable ${DEBUG} =? true
+	if [ "${DEBUG}" = "true" ]; then
+		$@
+	fi
+}
